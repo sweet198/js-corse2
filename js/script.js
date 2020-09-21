@@ -24,30 +24,31 @@ const movieDB = {
     ]
 };
 
-const promos = document.querySelectorAll('.promo__adv img');
-const genre = document.querySelector('.promo__genre');
-const promoBg = document.querySelector('.promo__bg');
-const promoList = document.querySelector('.promo__interactive-list');
-const promoItems = promoList.querySelectorAll('.promo__interactive-item');
+const promos = document.querySelectorAll('.promo__adv img'),
+    poster = document.querySelector('.promo__bg'),
+    genre = poster.querySelector('.promo__genre'),
+    promoList = document.querySelector('.promo__interactive-list'),
+    promoItems = promoList.querySelectorAll('.promo__interactive-item');
 
-promos.forEach((item) =>{
-    item.remove();
-});
+promoList.innerHTML =
 
 genre.textContent = 'драма';
 
-promoBg.style.backgroundImage = 'url("img/bg.jpg")';
+poster.style.backgroundImage = 'url("img/bg.jpg")';
 
-
-promoItems.forEach(item => {
-    item.remove();
-})
+promoList.innerHTML = '';
 
 movieDB.movies.sort();
 
 movieDB.movies.forEach((item, index) => {
-    const li = document.createElement('li');
-    li.classList.add('promo__interactive-item');
-    li.innerHTML = `<span>${index + 1}</span>${movieDB.movies[index]}<div class="delete"></div>`;
-    promoList.append(li);
+    promoList.innerHTML += `
+        <li class="promo__interactive-item">
+            ${index + 1} ${item}
+            <div class="delete"></div>
+        </li>
+    `;
+    // const li = document.createElement('li');
+    // li.classList.add('promo__interactive-item');
+    // li.innerHTML = `<span>${index + 1}</span>${movieDB.movies[index]}<div class="delete"></div>`;
+    // promoList.append(li);
 });
