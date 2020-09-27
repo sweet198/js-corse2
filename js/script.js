@@ -29,8 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         promoList = document.querySelector('.promo__interactive-list'),
         promoForm = document.querySelector('form.add'),
         promoFormInput = promoForm.querySelector('.adding__input'),
-        promoFormCheck = promoForm.querySelector('[type="checkbox"]'),
-        promoFormSubmit = promoForm.querySelector('button');
+        promoFormCheck = promoForm.querySelector('[type="checkbox"]');
 
     const deleteAdv = (arr) => {
         arr.forEach((item) => {
